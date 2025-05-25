@@ -1,155 +1,19 @@
-// Premium Menu System
-const menuToggle = document.getElementById('menu-toggle');
-const menuOverlay = document.getElementById('menu-overlay');
-const menuClose = document.getElementById('menu-close');
+// Mobile Navigation Toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
 
-// Open menu
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.add('active');
-    menuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
-// Close menu
-menuClose.addEventListener('click', () => {
-    closeMenu();
-});
-
-// Close menu when clicking on overlay background
-menuOverlay.addEventListener('click', (e) => {
-    if (e.target === menuOverlay) {
-        closeMenu();
-    }
-});
-
-// Close menu function
-function closeMenu() {
-    menuToggle.classList.remove('active');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Close menu when clicking on menu links
-document.querySelectorAll('.menu-link, .nav-link').forEach(link => {
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        closeMenu();
+        mobileMenu.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
-
-// Close menu with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
-        closeMenu();
-    }
-});
-
-// Premium Menu Link Hover Effects
-document.querySelectorAll('.menu-link').forEach(link => {
-    link.addEventListener('mouseenter', function() {
-        // Add magnetic effect
-        this.style.transform = 'translateX(10px)';
-        
-        // Create ripple effect on hover
-        const ripple = document.createElement('div');
-        ripple.style.position = 'absolute';
-        ripple.style.left = '0';
-        ripple.style.top = '0';
-        ripple.style.width = '100%';
-        ripple.style.height = '100%';
-        ripple.style.background = 'rgba(102, 126, 234, 0.1)';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.opacity = '0';
-        ripple.style.transition = 'opacity 0.3s ease';
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.style.opacity = '1';
-        }, 10);
-    });
-    
-    link.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-        
-        // Remove ripple effect
-        const ripple = this.querySelector('div');
-        if (ripple) {
-            ripple.style.opacity = '0';
-            setTimeout(() => {
-                if (ripple.parentNode) {
-                    ripple.parentNode.removeChild(ripple);
-                }
-            }, 300);
-        }
-    });
-});
-
-// Add parallax effect to background text
-window.addEventListener('scroll', () => {
-    const bgText = document.querySelector('.menu-bg-text');
-    if (bgText && menuOverlay.classList.contains('active')) {
-        const scrolled = window.pageYOffset;
-        bgText.style.transform = `translateY(-50%) rotate(90deg) translateX(${scrolled * 0.1}px)`;
-    }
-});
-
-// Add cursor trail effect in menu
-let mouseTrail = [];
-const maxTrailLength = 10;
-
-menuOverlay.addEventListener('mousemove', (e) => {
-    if (!menuOverlay.classList.contains('active')) return;
-    
-    mouseTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
-    
-    if (mouseTrail.length > maxTrailLength) {
-        mouseTrail.shift();
-    }
-    
-    // Remove old trail elements
-    document.querySelectorAll('.cursor-trail').forEach(el => {
-        if (Date.now() - el.dataset.time > 1000) {
-            el.remove();
-        }
-    });
-    
-    // Create new trail element
-    const trail = document.createElement('div');
-    trail.className = 'cursor-trail';
-    trail.dataset.time = Date.now();
-    trail.style.cssText = `
-        position: fixed;
-        left: ${e.clientX}px;
-        top: ${e.clientY}px;
-        width: 4px;
-        height: 4px;
-        background: #667eea;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 10000;
-        opacity: 0.8;
-        transform: translate(-50%, -50%);
-        animation: trailFade 1s ease-out forwards;
-    `;
-    
-    document.body.appendChild(trail);
-});
-
-// Add CSS for trail animation
-const trailStyle = document.createElement('style');
-trailStyle.textContent = `
-    @keyframes trailFade {
-        0% {
-            opacity: 0.8;
-            transform: translate(-50%, -50%) scale(1);
-        }
-        100% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.3);
-        }
-    }
-`;
-document.head.appendChild(trailStyle);
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
