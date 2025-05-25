@@ -40,6 +40,23 @@
         </nav>
     </header>
 
+    <!-- Interactive Physics Elements -->
+    <div class="physics-container">
+        <div class="orbital-system">
+            <div class="nucleus"></div>
+            <div class="electron electron-1"></div>
+            <div class="electron electron-2"></div>
+            <div class="electron electron-3"></div>
+        </div>
+        <div class="constellation">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+        </div>
+    </div>
+
     <main>
         <section id="home" class="hero">
             <div class="hero-container">
@@ -54,7 +71,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="hero-placeholder">
-                        <i class="fas fa-shield-alt"></i>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDI4MCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiByeD0iMTQwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8Y2lyY2xlIGN4PSIxNDAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMDBmZjlkIiBvcGFjaXR5PSIwLjgiLz4KPHBhdGggZD0iTTEwMCAxNjBIMTgwVjE4MEgxMDBWMTYwWiIgZmlsbD0iIzAwZmY5ZCIgb3BhY2l0eT0iMC44Ii8+CjxjaXJjbGUgY3g9IjE0MCIgY3k9IjE0MCIgcj0iODAiIHN0cm9rZT0iIzAwZmY5ZCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjMiLz4KPGR0ZXh0IHg9IjE0MCIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjlkIiBmb250LWZhbWlseT0iSW50ZXIiIGZvbnQtc2l6ZT0iMTQiPllvdXIgUGhvdG8gSGVyZTwvdGV4dD4KPGR0ZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCIgeTE9IjAiIHgyPSIyODAiIHkyPSIyODAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzBhMGUxYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxYTFmM2EiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K" alt="Muhammad Abqari Zulkifli" class="profile-image">
                     </div>
                 </div>
             </div>
@@ -65,45 +82,55 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>A <strong>multifaceted technologist</strong> with deep expertise spanning cybersecurity (OSINT, cryptography), data analytics, AI engineering, and quality assurance. Passionate about prompt engineering, data visualization, and automation.</p>
-                        <p>Known for exceptional problem-solving abilities and an insatiable appetite for continuous learning in cutting-edge technology domains. Published researcher with proven track record in CTF competitions and academic contributions.</p>
+                        <p>A <strong>curiosity-driven explorer</strong> at the intersection of technology and science. My fascination with the universe—from quantum mechanics to cosmic phenomena—fuels my approach to cybersecurity, AI, and data analytics.</p>
+                        <p>I see patterns everywhere: in stellar formations, cryptographic algorithms, and data structures. This perspective drives me to ask "what if?" and "why not?" in everything I build, leading to innovative solutions that others might overlook.</p>
                         <div class="skills">
                             <h3>Technical Arsenal</h3>
                             <div class="skill-categories">
                                 <div class="skill-category">
                                     <h4>🔒 Cybersecurity</h4>
                                     <div class="skill-tags">
-                                        <span class="skill-tag">OSINT</span>
-                                        <span class="skill-tag">Cryptography</span>
-                                        <span class="skill-tag">CTF</span>
-                                        <span class="skill-tag">Penetration Testing</span>
+                                        <span class="skill-tag" data-physics="quantum">OSINT</span>
+                                        <span class="skill-tag" data-physics="wave">Cryptography</span>
+                                        <span class="skill-tag" data-physics="particle">CTF</span>
+                                        <span class="skill-tag" data-physics="field">Penetration Testing</span>
                                     </div>
                                 </div>
                                 <div class="skill-category">
                                     <h4>🤖 AI & Engineering</h4>
                                     <div class="skill-tags">
-                                        <span class="skill-tag">AI Engineering</span>
-                                        <span class="skill-tag">Prompt Engineering</span>
-                                        <span class="skill-tag">Machine Learning</span>
-                                        <span class="skill-tag">Automation</span>
+                                        <span class="skill-tag" data-physics="neural">AI Engineering</span>
+                                        <span class="skill-tag" data-physics="quantum">Prompt Engineering</span>
+                                        <span class="skill-tag" data-physics="wave">Machine Learning</span>
+                                        <span class="skill-tag" data-physics="field">Automation</span>
                                     </div>
                                 </div>
                                 <div class="skill-category">
                                     <h4>📊 Data Analytics</h4>
                                     <div class="skill-tags">
-                                        <span class="skill-tag">Tableau</span>
-                                        <span class="skill-tag">Orange</span>
-                                        <span class="skill-tag">KNIME</span>
-                                        <span class="skill-tag">Statistical Analysis</span>
+                                        <span class="skill-tag" data-physics="particle">Tableau</span>
+                                        <span class="skill-tag" data-physics="wave">Orange</span>
+                                        <span class="skill-tag" data-physics="quantum">KNIME</span>
+                                        <span class="skill-tag" data-physics="field">Statistical Analysis</span>
                                     </div>
                                 </div>
                                 <div class="skill-category">
                                     <h4>💻 Programming</h4>
                                     <div class="skill-tags">
-                                        <span class="skill-tag">Python</span>
-                                        <span class="skill-tag">Java</span>
-                                        <span class="skill-tag">Robot Framework</span>
-                                        <span class="skill-tag">Windows CLI</span>
+                                        <span class="skill-tag" data-physics="neural">Python</span>
+                                        <span class="skill-tag" data-physics="particle">Java</span>
+                                        <span class="skill-tag" data-physics="wave">Robot Framework</span>
+                                        <span class="skill-tag" data-physics="quantum">Windows CLI</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>🔬 Sciences & Physics</h4>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag" data-physics="cosmic">Astrophysics</span>
+                                        <span class="skill-tag" data-physics="quantum">Quantum Mechanics</span>
+                                        <span class="skill-tag" data-physics="wave">Wave Theory</span>
+                                        <span class="skill-tag" data-physics="particle">Particle Physics</span>
+                                        <span class="skill-tag" data-physics="field">Field Theory</span>
                                     </div>
                                 </div>
                             </div>
