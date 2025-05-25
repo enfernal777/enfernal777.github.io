@@ -1396,6 +1396,37 @@ body::before {
     text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
 }
 
+.resume-download {
+    background: linear-gradient(135deg, rgba(0, 255, 157, 0.2) 0%, rgba(0, 153, 204, 0.2) 100%);
+    border: 2px solid rgba(0, 255, 157, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-download::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.3), transparent);
+    transition: left 0.8s;
+}
+
+.resume-download:hover::before {
+    left: 100%;
+}
+
+.resume-download:hover {
+    background: linear-gradient(135deg, rgba(0, 255, 157, 0.3) 0%, rgba(0, 153, 204, 0.3) 100%);
+    border-color: #00ff9d;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 255, 157, 0.3);
+}
+
 /* Footer */
 .footer {
     background: 

@@ -232,22 +232,76 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 
-    // Create quantum particles that follow mouse
+    // Create galaxy-like particles that follow mouse
     function createQuantumParticle(x, y) {
+        // Create different types of cosmic particles
+        const particleTypes = ['star', 'nebula', 'comet', 'moon'];
+        const type = particleTypes[Math.floor(Math.random() * particleTypes.length)];
+        
         const particle = document.createElement('div');
-        particle.className = 'quantum-particle';
-        particle.style.cssText = `
-            position: fixed;
-            left: ${x}px;
-            top: ${y}px;
-            width: 4px;
-            height: 4px;
-            background: radial-gradient(circle, #00ff9d, transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-            animation: quantumDecay 2s ease-out forwards;
-        `;
+        particle.className = `cosmic-particle ${type}`;
+        
+        switch(type) {
+            case 'star':
+                particle.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 3px;
+                    height: 3px;
+                    background: radial-gradient(circle, #ffffff, rgba(255, 255, 255, 0.3));
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+                    animation: starTrail 3s ease-out forwards;
+                `;
+                break;
+            case 'nebula':
+                particle.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 8px;
+                    height: 8px;
+                    background: radial-gradient(circle, rgba(0, 255, 157, 0.6), rgba(0, 153, 204, 0.3), transparent);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    animation: nebulaExpand 4s ease-out forwards;
+                `;
+                break;
+            case 'comet':
+                particle.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 2px;
+                    height: 12px;
+                    background: linear-gradient(to bottom, #00ff9d, transparent);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    transform: rotate(${Math.random() * 360}deg);
+                    animation: cometTrail 2.5s ease-out forwards;
+                `;
+                break;
+            case 'moon':
+                particle.style.cssText = `
+                    position: fixed;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 6px;
+                    height: 6px;
+                    background: radial-gradient(circle at 30% 30%, #ffffff, #e0e6ed, #a0aec0);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+                    animation: moonOrbit 5s ease-out forwards;
+                `;
+                break;
+        }
         
         document.body.appendChild(particle);
         
@@ -255,24 +309,68 @@ document.addEventListener('DOMContentLoaded', function() {
             if (particle.parentNode) {
                 particle.parentNode.removeChild(particle);
             }
-        }, 2000);
+        }, 5000);
     }
 
-    // Add quantum decay animation to CSS
+    // Add galaxy particle animations to CSS
     const style = document.createElement('style');
     style.textContent = `
-        @keyframes quantumDecay {
+        @keyframes starTrail {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2) translate(${Math.random() * 60 - 30}px, ${Math.random() * 60 - 30}px);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        @keyframes nebulaExpand {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(3) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(6) rotate(360deg);
+            }
+        }
+        
+        @keyframes cometTrail {
             0% {
                 opacity: 1;
                 transform: scale(1) translate(0, 0);
             }
+            100% {
+                opacity: 0;
+                transform: scale(0.3) translate(${Math.random() * 150 - 75}px, ${Math.random() * 150 - 75}px);
+            }
+        }
+        
+        @keyframes moonOrbit {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0) rotate(0deg);
+            }
             50% {
-                opacity: 0.7;
-                transform: scale(1.5) translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px);
+                opacity: 0.9;
+                transform: scale(1.1) translate(30px, -30px) rotate(180deg);
             }
             100% {
                 opacity: 0;
-                transform: scale(0) translate(${Math.random() * 80 - 40}px, ${Math.random() * 80 - 40}px);
+                transform: scale(0.8) translate(60px, -60px) rotate(360deg);
             }
         }
     `;
@@ -613,13 +711,35 @@ document.addEventListener('DOMContentLoaded', function() {
             100% { opacity: 0; transform: scale(5); }
         }
         
-        @keyframes starBurst {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 1; transform: scale(2); }
-            100% { opacity: 0; transform: scale(0); }
-        }
-    `;
-    document.head.appendChild(additionalStyles);
+                 @keyframes starBurst {
+             0% { opacity: 1; transform: scale(1); }
+             50% { opacity: 1; transform: scale(2); }
+             100% { opacity: 0; transform: scale(0); }
+         }
+         
+         @keyframes messageAppear {
+             0% { 
+                 opacity: 0; 
+                 transform: translate(-50%, -50%) scale(0.5); 
+             }
+             20% { 
+                 opacity: 1; 
+                 transform: translate(-50%, -50%) scale(1.1); 
+             }
+             25% { 
+                 transform: translate(-50%, -50%) scale(1); 
+             }
+             90% { 
+                 opacity: 1; 
+                 transform: translate(-50%, -50%) scale(1); 
+             }
+             100% { 
+                 opacity: 0; 
+                 transform: translate(-50%, -50%) scale(0.8); 
+             }
+         }
+     `;
+     document.head.appendChild(additionalStyles);
 
     // Parallax effect for physics elements
     window.addEventListener('scroll', () => {
@@ -704,5 +824,55 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroSection) {
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
+    }
+
+    // Resume download functionality
+    const resumeButton = document.querySelector('.resume-download');
+    if (resumeButton) {
+        resumeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a cosmic explosion effect when clicked
+            const rect = this.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Create multiple cosmic particles
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createQuantumParticle(
+                        centerX + (Math.random() - 0.5) * 100,
+                        centerY + (Math.random() - 0.5) * 100
+                    );
+                }, i * 50);
+            }
+            
+            // Show download message
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, rgba(0, 255, 157, 0.9), rgba(0, 153, 204, 0.9));
+                color: #0a0e1a;
+                padding: 20px 40px;
+                border-radius: 10px;
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                animation: messageAppear 3s ease-out forwards;
+            `;
+            message.textContent = '🚀 Resume will be available soon! Currently updating with latest achievements.';
+            
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, 3000);
+        });
     }
 }); 
