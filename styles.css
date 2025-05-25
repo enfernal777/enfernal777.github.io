@@ -787,6 +787,21 @@ body::before {
         inset 0 0 40px rgba(138, 43, 226, 0.1);
 }
 
+.ring-4 {
+    width: 380px;
+    height: 380px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringRotation 45s linear infinite reverse;
+    box-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.05),
+        inset 0 0 30px rgba(255, 255, 255, 0.03);
+}
+
 .blackhole-center {
     position: relative;
     width: 260px;
@@ -850,6 +865,22 @@ body::before {
     );
     animation: lensingPulse 8s ease-in-out infinite;
     z-index: 0;
+}
+
+.event-horizon {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        transparent 70%,
+        rgba(0, 0, 0, 0.3) 85%,
+        rgba(0, 0, 0, 0.6) 95%,
+        transparent 100%
+    );
+    animation: lensingPulse 15s ease-in-out infinite reverse;
+    z-index: -1;
 }
 
 @keyframes blackholeRotation {
@@ -1679,6 +1710,16 @@ body::before {
         height: 300px;
     }
 
+    .ring-4 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .event-horizon {
+        width: 340px;
+        height: 340px;
+    }
+
     .hero-placeholder i {
         font-size: 3rem;
     }
@@ -1769,6 +1810,16 @@ body::before {
     .gravitational-lensing {
         width: 260px;
         height: 260px;
+    }
+
+    .ring-4 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .event-horizon {
+        width: 300px;
+        height: 300px;
     }
 }
 
