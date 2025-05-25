@@ -503,6 +503,188 @@ body::before {
     transform: scale(1.05);
 }
 
+/* Science Avatar */
+.science-avatar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atom-structure {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    animation: atomRotate 20s linear infinite;
+}
+
+.nucleus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #00ff9d, #00d4aa);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 157, 0.8),
+        0 0 40px rgba(0, 255, 157, 0.4);
+    animation: nucleusGlow 3s ease-in-out infinite alternate;
+}
+
+.electron-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    width: 60px;
+    height: 60px;
+    animation: orbitRotate1 4s linear infinite;
+}
+
+.orbit-2 {
+    width: 90px;
+    height: 90px;
+    animation: orbitRotate2 6s linear infinite reverse;
+    transform: translate(-50%, -50%) rotateX(60deg);
+}
+
+.orbit-3 {
+    width: 120px;
+    height: 120px;
+    animation: orbitRotate3 8s linear infinite;
+    transform: translate(-50%, -50%) rotateY(60deg);
+}
+
+.electron {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #0099cc;
+    border-radius: 50%;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0, 153, 204, 0.8);
+    animation: electronGlow 2s ease-in-out infinite alternate;
+}
+
+.constellation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star-point {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.star-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.star-2 {
+    top: 30%;
+    right: 20%;
+    animation-delay: 0.6s;
+}
+
+.star-3 {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 1.2s;
+}
+
+.star-4 {
+    bottom: 35%;
+    right: 15%;
+    animation-delay: 1.8s;
+}
+
+.star-5 {
+    top: 15%;
+    left: 50%;
+    animation-delay: 2.4s;
+}
+
+@keyframes atomRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes nucleusGlow {
+    from { 
+        box-shadow: 
+            0 0 20px rgba(0, 255, 157, 0.8),
+            0 0 40px rgba(0, 255, 157, 0.4);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to { 
+        box-shadow: 
+            0 0 30px rgba(0, 255, 157, 1),
+            0 0 60px rgba(0, 255, 157, 0.6);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes orbitRotate1 {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitRotate2 {
+    from { transform: translate(-50%, -50%) rotateX(60deg) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotateX(60deg) rotate(360deg); }
+}
+
+@keyframes orbitRotate3 {
+    from { transform: translate(-50%, -50%) rotateY(60deg) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotateY(60deg) rotate(360deg); }
+}
+
+@keyframes electronGlow {
+    from { 
+        box-shadow: 0 0 10px rgba(0, 153, 204, 0.8);
+        transform: translateX(-50%) scale(1);
+    }
+    to { 
+        box-shadow: 0 0 15px rgba(0, 153, 204, 1);
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { 
+        opacity: 0.4; 
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    }
+}
+
 .hero-placeholder::before {
     content: '';
     position: absolute;
