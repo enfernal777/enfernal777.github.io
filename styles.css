@@ -1226,6 +1226,7 @@ body::before {
         linear-gradient(45deg, transparent 30%, rgba(0, 255, 157, 0.05) 50%, transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .project-card:hover {
@@ -1302,6 +1303,9 @@ body::before {
     border-radius: 6px;
     background: rgba(0, 255, 157, 0.1);
     font-size: 0.85rem;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
 }
 
 .project-link:hover {
