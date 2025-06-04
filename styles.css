@@ -1496,6 +1496,12 @@ body::before {
     font-weight: 300;
 }
 
+.publication-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .publication-link {
     color: #a0aec0;
     text-decoration: none;
