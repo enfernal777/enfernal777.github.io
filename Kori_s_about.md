@@ -144,7 +144,14 @@ Bachelor of Computer Science (Hons), Major in Cybersecurity
   *Amazon Web Services Training and Certification*  
   Issued Oct 9, 2025
 
+- **AWS Cloud Quest: Security - Training Badge**  
+  *Amazon Web Services Training and Certification*  
+  Issued Nov 10, 2025
 
+- **AWS Academy Graduate: Generative AI Foundations - Training Badge**  
+  *Amazon Web Services Training and Certification*  
+  Issued Oct 8, 2025
+  
 ## References
 
 **Mohd. Nawawi bin Bakhtir**  
