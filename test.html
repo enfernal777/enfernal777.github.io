@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Muhammad Abqari Zulkifli</title>
+    <link rel="icon" type="image/png" href="geassNoBg.png">
+    <style>
+        body {
+            background: #0a0e1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-title {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        .test-title::after {
+            content: '_';
+            color: #00ff9d;
+            animation: blink 1s infinite;
+            display: var(--cursor-display, inline);
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        .nav-test {
+            background: rgba(10, 14, 26, 0.98);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing Fixes</h1>
+    
+    <div class="nav-test">
+        <h2>Navigation Background Test</h2>
+        <p>This should have a dark background similar to the mobile nav menu.</p>
+    </div>
+    
+    <h2 class="test-title">Muhammad Abqari Zulkifli</h2>
+    
+    <button onclick="testTypewriter()">Test Typewriter Effect</button>
+    
+    <script>
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            // Temporarily hide the cursor during typing
+            element.style.setProperty('--cursor-display', 'none');
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // Show cursor again after typing is complete
+                    element.style.removeProperty('--cursor-display');
+                }
+            }
+            
+            type();
+        }
+        
+        function testTypewriter() {
+            const title = document.querySelector('.test-title');
+            typeWriter(title, 'Muhammad Abqari Zulkifli', 80);
+        }
+        
+        // Auto-start typewriter on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                testTypewriter();
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
